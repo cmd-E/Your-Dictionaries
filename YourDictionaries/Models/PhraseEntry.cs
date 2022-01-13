@@ -16,7 +16,7 @@ namespace YourDictionaries.Models
         /// <summary>
         /// Meaning of the phrase
         /// </summary>
-        public string Meaning { get; private set; }
+        public string Definition { get; private set; }
         /// <summary>
         /// Transcription of the phrase
         /// </summary>
@@ -25,10 +25,10 @@ namespace YourDictionaries.Models
         /// Translation of the phrase
         /// </summary>
         public string Translation { get; private set; }
-        public PhraseEntry(string phrase, string meaning, string transcription, string translation)
+        public PhraseEntry(string phrase, string definition, string transcription, string translation)
         {
             Phrase = phrase;
-            Meaning = meaning;
+            Definition = definition;
             Transcription = transcription;
             Translation = translation;
         }
