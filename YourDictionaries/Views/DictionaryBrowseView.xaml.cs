@@ -16,9 +16,9 @@ namespace YourDictionaries.Views
     /// <summary>
     /// Interaction logic for DictionaryView.xaml
     /// </summary>
-    public partial class DictionaryView : UserControl
+    public partial class DictionaryBrowseView : UserControl
     {
-        public DictionaryView()
+        public DictionaryBrowseView()
         {
             InitializeComponent();
         }

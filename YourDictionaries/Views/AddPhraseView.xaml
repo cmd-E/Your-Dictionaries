@@ -23,17 +23,16 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Phrase"/>
-            <TextBox Grid.Row="1"/>
+            <TextBox Text="{Binding Phrase, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
         </Grid>
-        <!--Meaning input-->
+        <!--Definition input-->
         <Grid Margin="0 10 0 0" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Meaning"/>
-            <!--<TextBox Grid.Row="1"/>-->
-            <RichTextBox Height="100" Grid.Row="1"/>
+            <TextBlock Grid.Row="0" Text="Definition"/>
+            <TextBox Text="{Binding Definition, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
         </Grid>
         <!--Transcription input-->
         <Grid Margin="0 10 0 0" Grid.Row="3">
@@ -42,7 +41,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Transcription"/>
-            <TextBox Grid.Row="1"/>
+            <TextBox Text="{Binding Transcription, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
         </Grid>
         <!--Translation input-->
         <Grid Margin="0 10 0 0" Grid.Row="4">
@@ -51,13 +50,13 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Translation"/>
-            <TextBox Grid.Row="1"/>
+            <TextBox Text="{Binding Translation, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
         </Grid>
         <!--Buttons-->
         <Grid Margin="0 10 0 0" Grid.Row="5">
             <StackPanel Orientation="Horizontal">
-                <Button Margin="0 0 20 0" Content="Add"/>
-                <Button  Content="Cancel"/>
+                <Button Margin="0 0 20 0" Content="Add" Command="{Binding SubmitCommand}"/>
+                <Button  Content="Cancel" Command="{Binding CancelCommand}"/>
             </StackPanel>
         </Grid>
     </Grid>
