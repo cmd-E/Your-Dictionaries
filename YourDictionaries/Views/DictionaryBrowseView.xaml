@@ -46,11 +46,12 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <GridSplitter Grid.Row="1" Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <ListView Grid.Row="0" Grid.Column="0">
-                <ListViewItem Content="Lalalla"/>
-                <ListViewItem Content="Lolololo"/>
-                <ListViewItem Content="bababbaba"/>
-                <ListViewItem Content="fafafaffa"/>
+            <ListView Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Path=SelectedDictionary.Phrases}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Phrase}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
             <!--<TextBlock Grid.Row="0" Grid.Column="0" Text="All phrases in the dictionary will be here"/>-->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Detailed definitions and example of the phrase will be here"/>
