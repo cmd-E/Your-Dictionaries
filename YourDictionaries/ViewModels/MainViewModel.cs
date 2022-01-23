@@ -9,7 +9,7 @@ namespace YourDictionaries.ViewModels
         public ViewModelBase CurrentViewModel { get; }
         public MainViewModel()
         {
-            CurrentViewModel = new DictionaryBrowseViewModel();
+            CurrentViewModel = new AddPhraseViewModel();
         }
     }
 }

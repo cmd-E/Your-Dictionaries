@@ -8,6 +8,6 @@
         Title="Your Dictionaries" Height="450" Width="800"
         FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
-        <views:DictionaryBrowseView DataContext="{Binding CurrentViewModel}"/>
+        <views:AddPhraseView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
