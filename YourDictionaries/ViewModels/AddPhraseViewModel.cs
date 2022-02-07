@@ -86,7 +86,7 @@ namespace YourDictionaries.ViewModels
 
         public AddPhraseViewModel()
         {
-            SubmitCommand = new AddNewPhraseCommand(this);
+            SubmitCommand = new AddNewPhraseCommand();
             _dictionaries = new ObservableCollection<DictionaryViewModel>();
             _dictionaries.Add(GenerateDictionary("Cars"));
             _dictionaries.Add(GenerateDictionary("Career"));

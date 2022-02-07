@@ -19,7 +19,33 @@ namespace YourDictionaries.ViewModels
 
         private readonly ObservableCollection<DictionaryViewModel> _dictionaries;
         public IEnumerable<DictionaryViewModel> Dictionaries => _dictionaries;
-        public DictionaryViewModel SelectedDictionary { get; set; }
+        private DictionaryViewModel _selectedDictionary;
+        public DictionaryViewModel SelectedDictionary
+        {
+            get
+            {
+                return _selectedDictionary;
+            }
+            set
+            {
+                _selectedDictionary = value;
+                OnPropertyChanged(nameof(SelectedDictionary));
+            }
+        }
+
+        private PhraseEntryViewMode _selectedPhrase;
+        public PhraseEntryViewMode SelectedPhrase
+        {
+            get
+            {
+                return _selectedPhrase;
+            }
+            set
+            {
+                _selectedPhrase = value;
+                OnPropertyChanged(nameof(SelectedPhrase));
+            }
+        }
         public DictionaryBrowseViewModel()
         {
             _dictionaries = new ObservableCollection<DictionaryViewModel>();
@@ -27,7 +53,7 @@ namespace YourDictionaries.ViewModels
             _dictionaries.Add(GenerateDictionary("Career"));
             _dictionaries.Add(GenerateDictionary("Books"));
             _dictionaries.Add(GenerateDictionary("TV Series"));
-            SelectedDictionary = _dictionaries[0]; // TODO: change selected dictionary on command or smth
+            //_selectedDictionary = _dictionaries[0];
         }
 
         private DictionaryViewModel GenerateDictionary(string dictionaryName)

@@ -66,9 +66,6 @@
                         <TextBlock Text="{Binding DictionaryName}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
-                <ComboBoxItem>
-                    <TextBlock Text="+ Add new dictionary"/>
-                </ComboBoxItem>
             </ComboBox>
         </Grid>
         <!--Buttons-->
