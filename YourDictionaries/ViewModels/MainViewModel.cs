@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using YourDictionaries.Stores;
 
 namespace YourDictionaries.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
-        public MainViewModel()
+        public readonly NavigationStore _navigationStore;
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new DictionaryBrowseViewModel();
+            _navigationStore = navigationStore;
+            navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

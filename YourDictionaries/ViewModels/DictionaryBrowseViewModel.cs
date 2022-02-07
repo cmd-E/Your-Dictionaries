@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
+using YourDictionaries.Commands;
 using YourDictionaries.Models;
+using YourDictionaries.Services;
+using YourDictionaries.Stores;
 
 namespace YourDictionaries.ViewModels
 {
@@ -13,7 +16,7 @@ namespace YourDictionaries.ViewModels
         public ICommand RemoveDictionaryCommand;
         public ICommand EditDictionaryCommand;
 
-        public ICommand AddPhraseCommand;
+        public ICommand AddPhraseCommand { get; }
         public ICommand RemovePhraseCommand;
         public ICommand EditPhraseCommand;
 
@@ -46,14 +49,14 @@ namespace YourDictionaries.ViewModels
                 OnPropertyChanged(nameof(SelectedPhrase));
             }
         }
-        public DictionaryBrowseViewModel()
+        public DictionaryBrowseViewModel(NavigationService addNewPhraseNavigationService)
         {
             _dictionaries = new ObservableCollection<DictionaryViewModel>();
             _dictionaries.Add(GenerateDictionary("Cars"));
             _dictionaries.Add(GenerateDictionary("Career"));
             _dictionaries.Add(GenerateDictionary("Books"));
             _dictionaries.Add(GenerateDictionary("TV Series"));
-            //_selectedDictionary = _dictionaries[0];
+            AddPhraseCommand = new NavigateCommand(addNewPhraseNavigationService);
         }
 
         private DictionaryViewModel GenerateDictionary(string dictionaryName)
@@ -64,6 +67,7 @@ namespace YourDictionaries.ViewModels
                 case "Cars":
                     dic.AddPhraseEntry(new PhraseEntry("Car", "Thing used to drive around", "car it is", "Автомобиль"));
                     dic.AddPhraseEntry(new PhraseEntry("Ignition", "Thing used to start a car", "ignition it is", "Зажигание"));
+                    dic.AddPhraseEntry(new PhraseEntry("Ajar", "Slightly opened", "ajar", "Приоткрыт"));
                     break;
                 case "Career":
                     dic.AddPhraseEntry(new PhraseEntry("Paycheck", "Thing you get for your work", "paycheck", "Зарплата"));

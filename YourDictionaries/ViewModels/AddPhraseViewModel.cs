@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Input;
 using YourDictionaries.Commands;
 using YourDictionaries.Models;
+using YourDictionaries.Services;
+using YourDictionaries.Stores;
 
 namespace YourDictionaries.ViewModels
 {
@@ -84,9 +86,10 @@ namespace YourDictionaries.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddPhraseViewModel()
+        public AddPhraseViewModel(NavigationService dictionaryBrowseNavigationStore)
         {
-            SubmitCommand = new AddNewPhraseCommand();
+            SubmitCommand = new AddNewPhraseCommand(dictionaryBrowseNavigationStore);
+            CancelCommand = new NavigateCommand(dictionaryBrowseNavigationStore);
             _dictionaries = new ObservableCollection<DictionaryViewModel>();
             _dictionaries.Add(GenerateDictionary("Cars"));
             _dictionaries.Add(GenerateDictionary("Career"));
