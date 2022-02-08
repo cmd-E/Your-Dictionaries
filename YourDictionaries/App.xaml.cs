@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using YourDictionaries.DbContexts;
 using YourDictionaries.Models;
 using YourDictionaries.Services;
 using YourDictionaries.Stores;
@@ -17,6 +19,7 @@ namespace YourDictionaries
     /// </summary>
     public partial class App : Application
     {
+        private const string CONNECTION_STRING = "Data Source=yourdic.db";
         private readonly NavigationStore _navigationStore;
         public App()
         {
@@ -24,6 +27,9 @@ namespace YourDictionaries
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(CONNECTION_STRING).Options;
+            YourDictionariesDbContext dbContext = new YourDictionariesDbContext(options);
+            dbContext.Database.Migrate();
             _navigationStore.CurrentViewModel = CreateDictionaryBrowseViewModel();
             MainWindow = new MainWindow()
             {

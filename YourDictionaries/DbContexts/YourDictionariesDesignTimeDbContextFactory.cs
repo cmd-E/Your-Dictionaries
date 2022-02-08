@@ -10,7 +10,7 @@ namespace YourDictionaries.DbContexts
     {
         public YourDictionariesDbContext CreateDbContext(string[] args)
         {
-            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite("Data Sourse=yourdic.db").Options;
+            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite("Data Source=yourdic.db").Options;
             return new YourDictionariesDbContext(options);
         }
     }
