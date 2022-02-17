@@ -10,7 +10,7 @@ using YourDictionaries.EntityFramework;
 namespace YourDictionaries.EntityFramework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220217071655_init")]
+    [Migration("20220217074752_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
