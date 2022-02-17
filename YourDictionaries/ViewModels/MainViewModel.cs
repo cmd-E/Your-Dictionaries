@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using YourDictionaries.State.Navigators;
 
 namespace YourDictionaries.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
-        public MainViewModel()
-        {
-            CurrentViewModel = new DictionaryBrowseViewModel();
-        }
     }
 }
