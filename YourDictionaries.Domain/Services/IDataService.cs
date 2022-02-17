@@ -7,7 +7,7 @@ namespace YourDictionaries.Domain.Services
 {
     public interface IDataService<T>
     {
-        Task<T> GetAll();
+        Task<IEnumerable<T>> GetAll();
         Task<T> Get(int id);
         Task<T> Create(T entity);
         Task<T> Update(int id, T entity);

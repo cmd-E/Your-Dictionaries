@@ -12,7 +12,7 @@ namespace YourDictionaries.EntityFramework
         /// <summary>
         /// Whenever migrations are run, this method will be executed to get options
         /// </summary>
-        public AppDbContext CreateDbContext(string[] args)
+        public AppDbContext CreateDbContext(string[] args = null)
         {
             var dbContextBuilder = new DbContextOptionsBuilder<AppDbContext>();
             dbContextBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Database=YD_DB;Trusted_Connection=True;");

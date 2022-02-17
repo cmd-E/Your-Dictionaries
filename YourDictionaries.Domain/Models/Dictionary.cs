@@ -5,9 +5,8 @@ using System.Text;
 
 namespace YourDictionaries.Domain.Models
 {
-    public class Dictionary
+    public class Dictionary : DomainObject
     {
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public IEnumerable<Phrase> Phrases { get; set; }

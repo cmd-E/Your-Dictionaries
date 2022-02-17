@@ -5,9 +5,8 @@ using System.Text;
 
 namespace YourDictionaries.Domain.Models
 {
-    public class Phrase
+    public class Phrase : DomainObject
     {
-        public int Id { get; set; }
         [Required]
         public string Expression { get; set; }
         [Required]
