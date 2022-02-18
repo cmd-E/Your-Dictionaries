@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using YourDictionaries.Domain.Services;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using YourDictionaries.Domain.Models;
+using YourDictionaries.EntityFramework.DataServices.Interfaces;
 
-namespace YourDictionaries.EntityFramework
+namespace YourDictionaries.EntityFramework.DataServices
 {
     public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         private readonly AppDbContextFactory _appDbContextFactory; // using factory instead of actual context because using context directly isn't thread save
-
+        protected AppDbContextFactory AppDbContextFactory => _appDbContextFactory;
         public GenericDataService(AppDbContextFactory appDbContextFactory)
         {
             _appDbContextFactory = appDbContextFactory;

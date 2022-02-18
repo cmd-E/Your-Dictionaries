@@ -13,6 +13,6 @@ namespace YourDictionaries.Domain.Models
         public string Meaning { get; set; }
         public string Translation { get; set; }
         public string Transcription { get; set; }
-        public Dictionary AssignedDictionary { get; set; }
+        public virtual Dictionary AssignedDictionary { get; set; }
     }
 }

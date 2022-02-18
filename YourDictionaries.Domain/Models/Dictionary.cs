@@ -9,6 +9,6 @@ namespace YourDictionaries.Domain.Models
     {
         [Required]
         public string Name { get; set; }
-        public IEnumerable<Phrase> Phrases { get; set; }
+        public virtual IEnumerable<Phrase> Phrases { get; set; }
     }
 }

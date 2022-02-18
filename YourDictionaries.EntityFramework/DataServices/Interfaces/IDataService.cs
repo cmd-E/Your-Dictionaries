@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YourDictionaries.Domain.Services
+namespace YourDictionaries.EntityFramework.DataServices.Interfaces
 {
     public interface IDataService<T>
     {

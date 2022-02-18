@@ -55,7 +55,7 @@
         <!--Buttons-->
         <Grid Margin="0 10 0 0" Grid.Row="5">
             <StackPanel Orientation="Horizontal">
-                <Button Margin="0 0 20 0" Content="Add" Command="{Binding SubmitCommand}"/>
+                <Button Margin="0 0 20 0" Content="Add" Command="{Binding SubmitPhrase}"/>
                 <Button  Content="Cancel" Command="{Binding NavigateDictionaryBrowse}"/>
             </StackPanel>
         </Grid>

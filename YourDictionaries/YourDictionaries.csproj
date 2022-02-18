@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YourDictionaries.Domain\YourDictionaries.Domain.csproj" />
+    <ProjectReference Include="..\YourDictionaries.EntityFramework\YourDictionaries.EntityFramework.csproj" />
+  </ItemGroup>
+
 </Project>
