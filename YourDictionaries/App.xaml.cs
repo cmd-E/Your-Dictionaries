@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using YourDictionaries.State;
 using YourDictionaries.ViewModels;
 
 namespace YourDictionaries
@@ -16,9 +17,11 @@ namespace YourDictionaries
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            NavigationState navigationState = new NavigationState();
+            navigationState.CurrentViewModel = new DictionaryBrowseViewModel(navigationState);
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(navigationState)
             };
             MainWindow.Show();
             base.OnStartup(e);

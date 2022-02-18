@@ -9,6 +9,6 @@
         FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
         <!--Data templates are in App.xaml-->
-        <ContentControl Content="{Binding Navigator.CurrentViewModel}"/>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
     </Grid>
 </Window>
