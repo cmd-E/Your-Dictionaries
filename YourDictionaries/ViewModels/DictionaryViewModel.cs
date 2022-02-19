@@ -8,15 +8,17 @@ namespace YourDictionaries.ViewModels
 {
     public class DictionaryViewModel : ViewModelBase
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public IEnumerable<PhraseViewModel> Phrases { get; set; }
         public DictionaryViewModel()
         {
 
         }
-
+        // TODO: use automapper
         public DictionaryViewModel(Dictionary dictionary)
         {
+            Id = dictionary.Id;
             Name = dictionary.Name;
             Phrases = dictionary.Phrases.Select(p => new PhraseViewModel(p));
         }

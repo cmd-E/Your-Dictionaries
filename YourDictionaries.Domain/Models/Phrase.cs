@@ -10,9 +10,10 @@ namespace YourDictionaries.Domain.Models
         [Required]
         public string Expression { get; set; }
         [Required]
-        public string Meaning { get; set; }
+        public string Meaning { get; set; } //TODO: Change "meaning" to "definition"
         public string Translation { get; set; }
         public string Transcription { get; set; }
-        public virtual Dictionary AssignedDictionary { get; set; }
+        public int DictionaryId { get; set; }
+        public virtual Dictionary Dictionary { get; set; }
     }
 }
