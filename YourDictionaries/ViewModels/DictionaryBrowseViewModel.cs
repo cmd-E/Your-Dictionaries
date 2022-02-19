@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using YourDictionaries.Commands;
 using YourDictionaries.Domain.Models;
@@ -39,6 +40,19 @@ namespace YourDictionaries.ViewModels
             }
         }
 
+        private PhraseViewModel _selectedPhrase;
+
+        public PhraseViewModel SelectedPhrase
+        {
+            get { return _selectedPhrase; }
+            set
+            {
+                _selectedPhrase = value;
+                OnPropertyChanged(nameof(SelectedPhrase));
+            }
+        }
+
+
         private readonly NavigationState _navigationState;
 
         public DictionaryBrowseViewModel(NavigationState navigationState)
@@ -54,7 +68,7 @@ namespace YourDictionaries.ViewModels
                 }
                 else
                 {
-                    Debug.WriteLine(task.Exception.Message);
+                    MessageBox.Show(task.Exception.Message, "Error occured", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             });
         }
