@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourDictionaries", "YourDictionaries\YourDictionaries.csproj", "{0DC16137-A441-4E5E-A239-366330B11DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourDictionaries", "YourDictionaries\YourDictionaries.csproj", "{0DC16137-A441-4E5E-A239-366330B11DB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourDictionaries.Domain", "YourDictionaries.Domain\YourDictionaries.Domain.csproj", "{90A8FE1B-6848-432A-A3E7-26804B7F2108}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourDictionaries.EntityFramework", "YourDictionaries.EntityFramework\YourDictionaries.EntityFramework.csproj", "{010A8406-BD06-4387-BC4E-5B6F7617E22A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0DC16137-A441-4E5E-A239-366330B11DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DC16137-A441-4E5E-A239-366330B11DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DC16137-A441-4E5E-A239-366330B11DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A8FE1B-6848-432A-A3E7-26804B7F2108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A8FE1B-6848-432A-A3E7-26804B7F2108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A8FE1B-6848-432A-A3E7-26804B7F2108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A8FE1B-6848-432A-A3E7-26804B7F2108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

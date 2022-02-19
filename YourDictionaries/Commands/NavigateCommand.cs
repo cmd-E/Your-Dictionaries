@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using YourDictionaries.Services;
-using YourDictionaries.Stores;
+using YourDictionaries.State;
 using YourDictionaries.ViewModels;
 
 namespace YourDictionaries.Commands
 {
-    public class NavigateCommand : CommandBase
+    public class NavigateCommand<T> : BaseCommand where T : ViewModelBase
     {
-        private readonly NavigationService _navigationService;
+        private readonly NavigationState _navigationState;
+        private readonly Func<T> _newViewModel;
 
-        public NavigateCommand(NavigationService navigationService)
+        public NavigateCommand(NavigationState navigationState, Func<T> newViewModel)
         {
-            _navigationService = navigationService;
+            _navigationState = navigationState;
+            _newViewModel = newViewModel;
         }
 
         public override void Execute(object parameter)
         {
-            _navigationService.Navigate();
+            _navigationState.CurrentViewModel = _newViewModel();
         }
     }
 }

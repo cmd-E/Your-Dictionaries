@@ -28,7 +28,7 @@
             <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Dictionaries}" SelectedItem="{Binding SelectedDictionary}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding DictionaryName}"/>
+                        <TextBlock Text="{Binding Name}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -46,37 +46,37 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <GridSplitter Grid.Row="1" Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <ListView Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Path=SelectedDictionary.Phrases}" SelectedItem="{Binding SelectedPhrase}">
+            <ListView Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SelectedDictionary.Phrases}" SelectedItem="{Binding SelectedPhrase}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Phrase}"/>
+                        <TextBlock Text="{Binding Expression}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Background="White">
+            <!--TODO: Text in texts blocks is not selectable. Change to readonly text boxes https://social.msdn.microsoft.com/Forums/vstudio/en-US/8825590a-95dc-4981-975e-3da6383fa5d1/how-to-make-textblock-selectable?forum=wpf-->
+            <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Phrase: "/>
-                    <TextBlock Text="{Binding Path=SelectedPhrase.Phrase}"/>
+                    <TextBlock Text="Expression: "/>
+                    <TextBlock Text="{Binding SelectedPhrase.Expression}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Definition: "/>
-                    <TextBlock Text="{Binding Path=SelectedPhrase.Definition}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Transcription: "/>
-                    <TextBlock Text="{Binding Path=SelectedPhrase.Transcription}"/>
+                    <TextBlock Text="Meaning: "/>
+                    <TextBlock Text="{Binding SelectedPhrase.Meaning}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Translation: "/>
-                    <TextBlock Text="{Binding Path=SelectedPhrase.Translation}"/>
+                    <TextBlock Text="{Binding SelectedPhrase.Translation}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Transcription: "/>
+                    <TextBlock Text="{Binding SelectedPhrase.Transcription}"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="0 10 0 0" Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
-                <Button Content="+" Command="{Binding AddPhraseCommand}"/>
+                <Button Content="+" Command="{Binding NavigateAddPhrase}" />
                 <Button Content="-" Margin="10 0 0 0" Command="{Binding RemovePhraseCommand}"/>
                 <Button Content="Edit" Margin="10 0 0 0" Command="{Binding EditPhraseCommand}"/>
             </StackPanel>
         </Grid>
-
     </Grid>
 </UserControl>

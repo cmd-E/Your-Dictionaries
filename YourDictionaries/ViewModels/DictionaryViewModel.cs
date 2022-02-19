@@ -1,25 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using YourDictionaries.Models;
+using System.Text;
+using YourDictionaries.Domain.Models;
 
 namespace YourDictionaries.ViewModels
 {
     public class DictionaryViewModel : ViewModelBase
     {
-        private readonly Dictionary _dictionary;
-        public string DictionaryName => _dictionary.DictionaryName;
-        private readonly ObservableCollection<PhraseEntryViewMode> _phrases;
-        public IEnumerable<PhraseEntryViewMode> Phrases => _phrases;
+        public string Name { get; set; }
+        public IEnumerable<PhraseViewModel> Phrases { get; set; }
+        public DictionaryViewModel()
+        {
+
+        }
 
         public DictionaryViewModel(Dictionary dictionary)
         {
-            _dictionary = dictionary;
-            _phrases = new ObservableCollection<PhraseEntryViewMode>();
-            foreach (PhraseEntry phraseEntry in _dictionary.GetAllPhraseEntries())
-            {
-                _phrases.Add(new PhraseEntryViewMode(phraseEntry));
-            }
+            Name = dictionary.Name;
+            Phrases = dictionary.Phrases.Select(p => new PhraseViewModel(p));
         }
     }
 }
