@@ -19,8 +19,22 @@ namespace YourDictionaries.EntityFramework.DataServices
             {
                 var dic = await context.Dictionaries.SingleOrDefaultAsync(d => d.Id == dictionaryId);
                 phrase.DictionaryId = dic.Id;
-                var e = await context.Phrases.AddAsync(phrase);
-                _ = e;
+                await context.Phrases.AddAsync(phrase);
+                await context.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdatePhrase(Phrase phrase)
+        {
+            using (var context = AppDbContextFactory.CreateDbContext())
+            {
+                var phraseToEdit = await context.Phrases.FirstOrDefaultAsync(c => c.Id == phrase.Id);
+                phraseToEdit.Expression = phrase.Expression;
+                phraseToEdit.Meaning = phrase.Meaning;
+                phrase.Transcription = phrase.Transcription;
+                phrase.Translation = phrase.Translation;
+                phraseToEdit.Dictionary = phrase.Dictionary;
+                phrase.DictionaryId = phrase.DictionaryId;
                 await context.SaveChangesAsync();
             }
         }

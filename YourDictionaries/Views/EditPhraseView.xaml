@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="YourDictionaries.Views.AddPhraseView"
+﻿<UserControl x:Class="YourDictionaries.Views.EditPhraseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,7 +17,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Add new phrase" Style="{StaticResource Header}"/>
+        <TextBlock Grid.Row="0" Text="Edit phrase" Style="{StaticResource Header}"/>
         <!--Phrase input-->
         <Grid Margin="0 10 0 0" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -25,7 +25,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Phrase"/>
-            <TextBox Text="{Binding Phrase, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+            <TextBox Text="{Binding Phrase, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="1"/>
         </Grid>
         <!--Definition input-->
         <Grid Margin="0 10 0 0" Grid.Row="2">
@@ -34,7 +34,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Definition"/>
-            <TextBox Text="{Binding Meaning, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+            <TextBox Text="{Binding Meaning, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="1"/>
         </Grid>
         <!--Transcription input-->
         <Grid Margin="0 10 0 0" Grid.Row="3">
@@ -43,7 +43,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Transcription"/>
-            <TextBox Text="{Binding Transcription, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+            <TextBox Text="{Binding Transcription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="1"/>
         </Grid>
         <!--Translation input-->
         <Grid Margin="0 10 0 0" Grid.Row="4">
@@ -52,7 +52,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Translation"/>
-            <TextBox Text="{Binding Translation, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+            <TextBox Text="{Binding Translation, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="1"/>
         </Grid>
         <Grid Margin="0 10 0 0" Grid.Row="5">
             <Grid.RowDefinitions>
@@ -73,7 +73,7 @@
         <!--Buttons-->
         <Grid Margin="0 10 0 0" Grid.Row="6">
             <StackPanel Orientation="Horizontal">
-                <Button Margin="0 0 20 0" Content="Add" Command="{Binding SubmitPhraseCommand}"/>
+                <Button Margin="0 0 20 0" Content="Edit" Command="{Binding EditPhraseCommand}"/>
                 <Button  Content="Cancel" Command="{Binding NavigateDictionaryBrowse}"/>
             </StackPanel>
         </Grid>

@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Menu for list view item (dictionary)-->
+    <ContextMenu x:Key="ItemContextMenu">
+        <!--More on relative binding https://stackoverflow.com/questions/57919537/how-to-bind-list-view-items-context-menu-to-icommand-->
+        <MenuItem Header="Add phrase" Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.NavigateAddPhrase}" />
+        <MenuItem Header="Edit dictionary"/>
+        <MenuItem Header="Delete dictionary"/>
+    </ContextMenu>
+    <!--Menu for list of dictionaries-->
+    <ContextMenu x:Key="ListViewContextMenu">
+        <MenuItem Header="Create dictionary"/>
+    </ContextMenu>
+    <!--Style for list view item to apply context menu-->
+    <Style TargetType="{x:Type ListViewItem}" x:Key="ListViewItemContextMenu">
+        <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}"/>
+    </Style>
+    <Style TargetType="{x:Type ListView}" >
+        <Setter Property="ContextMenu" Value="{StaticResource ListViewContextMenu}"/>
+    </Style>
+
+    <!--Menu for list view item (phrase)-->
+    <ContextMenu x:Key="ItemContextMenuPhrase">
+        <MenuItem Header="Edit phrase" Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.NavigateEditPhrase}"/>
+        <MenuItem Header="Delete phrase" Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePhraseCommand}"/>
+    </ContextMenu>
+    <!--Menu for list of phrases-->
+    <ContextMenu x:Key="ListViewContextMenuPhrase">
+        <MenuItem Header="Add phrase" Command="{Binding NavigateAddPhrase}"/>
+    </ContextMenu>
+</ResourceDictionary>

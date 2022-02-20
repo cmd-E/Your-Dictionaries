@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using YourDictionaries.Services;
 using YourDictionaries.State;
 using YourDictionaries.ViewModels;
 
@@ -18,6 +19,7 @@ namespace YourDictionaries
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            Mapper.InitMapper();
             NavigationState navigationState = new NavigationState();
             navigationState.CurrentViewModel = new DictionaryBrowseViewModel(navigationState);
             MainWindow = new MainWindow()

@@ -14,10 +14,10 @@ using YourDictionaries.State;
 
 namespace YourDictionaries.ViewModels
 {
-    public class AddPhraseViewModel : ViewModelBase
+    public class EditPhraseViewModel : ViewModelBase
     {
         public ICommand NavigateDictionaryBrowse { get; set; }
-        public ICommand SubmitPhraseCommand { get; set; }
+        public ICommand EditPhraseCommand { get; set; }
         private ObservableCollection<DictionaryViewModel> _dictionaries;
         public ObservableCollection<DictionaryViewModel> Dictionaries
         {
@@ -97,30 +97,31 @@ namespace YourDictionaries.ViewModels
             }
         }
 
-        public AddPhraseViewModel(NavigationState navigationState, DictionaryViewModel dictionaryToAddPhrase = null)
+        // Id of edited phrase required for updating
+        public int PhraseId { get; set; }
+
+        public EditPhraseViewModel(NavigationState navigationState, PhraseViewModel phraseViewModelToEdit)
         {
             NavigateDictionaryBrowse = new NavigateCommand<DictionaryBrowseViewModel>(navigationState, () => new DictionaryBrowseViewModel(navigationState));
-            SubmitPhraseCommand = new SubmitPhraseCommand(this);
+            EditPhraseCommand = new EditPhraseCommand(this);
+            Phrase = phraseViewModelToEdit.Expression;
+            Meaning = phraseViewModelToEdit.Meaning;
+            Transcription = phraseViewModelToEdit.Transcription;
+            Translation = phraseViewModelToEdit.Translation;
+            PhraseId = phraseViewModelToEdit.Id;
             IDictionaryDataService dictionaryDataService = new DictionaryDataService(new EntityFramework.AppDbContextFactory());
             dictionaryDataService.GetDictionaries().ContinueWith(task =>
             {
                 if (task.Exception == null)
                 {
                     Dictionaries = new ObservableCollection<DictionaryViewModel>(task.Result.Select(d => Mapper.MyMapper.Map<DictionaryViewModel>(d)));
-                    if (Dictionaries.Count() > 0 && dictionaryToAddPhrase == null)
+                    // Doesn't work if type: this.SelectedDictionary = dictionaryToAddPhrase
+                    foreach (var dic in Dictionaries)
                     {
-                        SelectedDictionary = Dictionaries[0];
-                    }
-                    else if (dictionaryToAddPhrase != null)
-                    {
-                        // Doesn't work if type: this.SelectedDictionary = dictionaryToAddPhrase
-                        foreach (var dic in Dictionaries)
+                        if (dic.Id == phraseViewModelToEdit.AssignedDictionary.Id)
                         {
-                            if (dic.Id == dictionaryToAddPhrase?.Id)
-                            {
-                                SelectedDictionary = dic;
-                                break;
-                            }
+                            SelectedDictionary = dic;
+                            break;
                         }
                     }
                 }

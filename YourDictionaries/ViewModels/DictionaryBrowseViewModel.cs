@@ -7,10 +7,12 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using YourDictionaries.Commands;
+using YourDictionaries.Commands.PhrasesCommands;
 using YourDictionaries.Domain.Models;
 using YourDictionaries.EntityFramework;
 using YourDictionaries.EntityFramework.DataServices;
 using YourDictionaries.EntityFramework.DataServices.Interfaces;
+using YourDictionaries.Services;
 using YourDictionaries.State;
 
 namespace YourDictionaries.ViewModels
@@ -18,6 +20,8 @@ namespace YourDictionaries.ViewModels
     public class DictionaryBrowseViewModel : ViewModelBase
     {
         public ICommand NavigateAddPhrase { get; set; }
+        public ICommand DeletePhraseCommand { get; set; }
+        public ICommand NavigateEditPhrase { get; set; }
         public ObservableCollection<DictionaryViewModel> _dictionaries;
         public ObservableCollection<DictionaryViewModel> Dictionaries
         {
@@ -58,19 +62,41 @@ namespace YourDictionaries.ViewModels
         public DictionaryBrowseViewModel(NavigationState navigationState)
         {
             _navigationState = navigationState;
-            NavigateAddPhrase = new NavigateCommand<AddPhraseViewModel>(_navigationState, () => new AddPhraseViewModel(navigationState));
+            NavigateAddPhrase = new NavigateCommand<AddPhraseViewModel>(_navigationState, () => new AddPhraseViewModel(navigationState, SelectedDictionary));
+            NavigateEditPhrase = new NavigateCommand<EditPhraseViewModel>(_navigationState, () => new EditPhraseViewModel(navigationState, SelectedPhrase));
+            DeletePhraseCommand = new DeletePhraseCommand(this);
+            Commands.PhrasesCommands.DeletePhraseCommand.PhraseDeleted += DeletePhraseCommand_PhraseDeleted;
             IDictionaryDataService dictionaryDataService = new DictionaryDataService(new AppDbContextFactory());
             dictionaryDataService.GetDictionaries().ContinueWith(task =>
             {
                 if (task.Exception == null)
                 {
-                    Dictionaries = new ObservableCollection<DictionaryViewModel>(task.Result.Select(d => new DictionaryViewModel(d)));
+                    Dictionaries = new ObservableCollection<DictionaryViewModel>(task.Result.Select(d => Mapper.MyMapper.Map<DictionaryViewModel>(d)));
                 }
                 else
                 {
                     MessageBox.Show(task.Exception.Message, "Error occured", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             });
+        }
+
+        private void DeletePhraseCommand_PhraseDeleted(object source, DeletedPhraseEventAgrs args)
+        {
+            var pvm = args.DeletedPhrase;
+            foreach (DictionaryViewModel dic in Dictionaries)
+            {
+                foreach (var item in dic.Phrases)
+                {
+                    if (item.Expression == pvm.Expression)
+                    {
+                        App.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            dic.Phrases.Remove(pvm);
+                        });
+                        break;
+                    }
+                }
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ namespace YourDictionaries.ViewModels
 {
     public class PhraseViewModel
     {
+        public int Id { get; set; }
         public string Expression { get; set; }
         public string Meaning { get; set; }  //TODO: Change "meaning" to "definition"
         public string Translation { get; set; }
@@ -18,13 +19,14 @@ namespace YourDictionaries.ViewModels
 
         }
         // TODO: use automapper
-        public PhraseViewModel(Phrase phrase)
-        {
-            Expression = phrase.Expression;
-            Meaning = phrase.Meaning;
-            Translation = phrase.Translation;
-            Transcription = phrase.Transcription;
-            AssignedDictionary = new DictionaryViewModel(phrase.Dictionary);
-        }
+        //public PhraseViewModel(Phrase phrase)
+        //{
+        //    Id = phrase.Id;
+        //    Expression = phrase.Expression;
+        //    Meaning = phrase.Meaning;
+        //    Translation = phrase.Translation;
+        //    Transcription = phrase.Transcription;
+        //    AssignedDictionary = new DictionaryViewModel(phrase.Dictionary);
+        //}
     }
 }
