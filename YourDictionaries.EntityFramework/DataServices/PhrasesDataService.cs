@@ -17,7 +17,7 @@ namespace YourDictionaries.EntityFramework.DataServices
         {
             using (var context = AppDbContextFactory.CreateDbContext())
             {
-                var dic = await context.Dictionaries.SingleOrDefaultAsync(d => d.Id == dictionaryId);
+                var dic = await context.Phrases.SingleOrDefaultAsync(d => d.Id == dictionaryId);
                 phrase.DictionaryId = dic.Id;
                 await context.Phrases.AddAsync(phrase);
                 await context.SaveChangesAsync();

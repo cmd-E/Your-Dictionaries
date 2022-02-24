@@ -4,12 +4,12 @@
     <ContextMenu x:Key="ItemContextMenu">
         <!--More on relative binding https://stackoverflow.com/questions/57919537/how-to-bind-list-view-items-context-menu-to-icommand-->
         <MenuItem Header="Add phrase" Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.NavigateAddPhrase}" />
-        <MenuItem Header="Edit dictionary"/>
-        <MenuItem Header="Delete dictionary"/>
+        <MenuItem Header="Edit dictionary" Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.NavigateEditDictionaryCommand}"/>
+        <MenuItem Header="Delete dictionary" Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeleteDictionaryCommand}"/>
     </ContextMenu>
     <!--Menu for list of dictionaries-->
     <ContextMenu x:Key="ListViewContextMenu">
-        <MenuItem Header="Create dictionary"/>
+        <MenuItem Header="Create dictionary" Command="{Binding NavigateCreateDictionary}"/>
     </ContextMenu>
     <!--Style for list view item to apply context menu-->
     <Style TargetType="{x:Type ListViewItem}" x:Key="ListViewItemContextMenu">

@@ -12,7 +12,7 @@ namespace YourDictionaries.Commands.PhrasesCommands
     {
         public delegate void PhraseDeletedEventHandler(object source, DeletedPhraseEventAgrs args);
         public static event PhraseDeletedEventHandler PhraseDeleted;
-        private readonly DictionaryBrowseViewModel _dictionaryBrowseViewModel;
+        private readonly DictionaryBrowseViewModel _dictionaryBrowseViewModel; // TODO: pass only selected phrase
 
         public DeletePhraseCommand(DictionaryBrowseViewModel dictionaryBrowseViewModel)
         {

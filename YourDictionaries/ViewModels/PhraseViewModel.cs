@@ -13,20 +13,5 @@ namespace YourDictionaries.ViewModels
         public string Translation { get; set; }
         public string Transcription { get; set; }
         public DictionaryViewModel AssignedDictionary { get; set; }
-
-        public PhraseViewModel()
-        {
-
-        }
-        // TODO: use automapper
-        //public PhraseViewModel(Phrase phrase)
-        //{
-        //    Id = phrase.Id;
-        //    Expression = phrase.Expression;
-        //    Meaning = phrase.Meaning;
-        //    Translation = phrase.Translation;
-        //    Transcription = phrase.Transcription;
-        //    AssignedDictionary = new DictionaryViewModel(phrase.Dictionary);
-        //}
     }
 }

@@ -24,5 +24,11 @@
         <DataTemplate DataType="{x:Type vms:EditPhraseViewModel}">
             <views:EditPhraseView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:CreateDictionaryViewModel}">
+            <views:CreateDictionaryView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:EditDictionaryViewModel}">
+            <views:EditDictionaryView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

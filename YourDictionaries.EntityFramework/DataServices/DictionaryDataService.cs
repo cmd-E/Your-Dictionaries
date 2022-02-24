@@ -21,5 +21,15 @@ namespace YourDictionaries.EntityFramework.DataServices
                 return dic;
             }
         }
+
+        public async Task UpdateDictionary(Dictionary dictionary)
+        {
+            using (AppDbContext context = AppDbContextFactory.CreateDbContext())
+            {
+                Dictionary dic = await context.Dictionaries.FirstOrDefaultAsync(c => c.Id == dictionary.Id);
+                dic.Name = dictionary.Name;
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }

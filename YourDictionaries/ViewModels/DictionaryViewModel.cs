@@ -12,16 +12,5 @@ namespace YourDictionaries.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         public ObservableCollection<PhraseViewModel> Phrases { get; set; }
-        public DictionaryViewModel()
-        {
-
-        }
-        // TODO: use automapper
-        //public DictionaryViewModel(Dictionary dictionary)
-        //{
-        //    Id = dictionary.Id;
-        //    Name = dictionary.Name;
-        //    Phrases = dictionary.Phrases.Select(p => new PhraseViewModel(p));
-        //}
     }
 }
