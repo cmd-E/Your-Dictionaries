@@ -57,12 +57,12 @@ namespace YourDictionaries.EntityFramework.DataServices
             }
         }
         // TODO: change method as in phrasedataservice
-        public async Task<T> Update(int id, T entity)
+        public async Task<T> Update(T entity)
         {
             using (AppDbContext context = _appDbContextFactory.CreateDbContext())
             {
-                entity.Id = id;
-                context.Set<T>().Update(entity);
+                context.Set<T>().Attach(entity);
+                context.Entry(entity).State = EntityState.Modified;
                 await context.SaveChangesAsync();
                 return entity;
             }

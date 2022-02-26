@@ -45,7 +45,7 @@ namespace YourDictionaries.Commands.PhrasesCommands
                 Translation = _editPhraseViewModel.Translation,
                 DictionaryId = _editPhraseViewModel.SelectedDictionary.Id
             };
-            phrasesDataService.UpdatePhrase(phrase).ContinueWith((task) =>
+            phrasesDataService.Update(phrase).ContinueWith((task) =>
             {
                 if (task.Exception == null)
                 {

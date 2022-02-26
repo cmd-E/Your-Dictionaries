@@ -23,20 +23,5 @@ namespace YourDictionaries.EntityFramework.DataServices
                 await context.SaveChangesAsync();
             }
         }
-
-        public async Task UpdatePhrase(Phrase phrase)
-        {
-            using (var context = AppDbContextFactory.CreateDbContext())
-            {
-                var phraseToEdit = await context.Phrases.FirstOrDefaultAsync(c => c.Id == phrase.Id);
-                phraseToEdit.Expression = phrase.Expression;
-                phraseToEdit.Meaning = phrase.Meaning;
-                phrase.Transcription = phrase.Transcription;
-                phrase.Translation = phrase.Translation;
-                phraseToEdit.Dictionary = phrase.Dictionary;
-                phrase.DictionaryId = phrase.DictionaryId;
-                await context.SaveChangesAsync();
-            }
-        }
     }
 }

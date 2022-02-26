@@ -9,6 +9,5 @@ namespace YourDictionaries.EntityFramework.DataServices.Interfaces
     public interface IPhrasesDataService : IDataService<Phrase>
     {
         public Task AddPhraseToDictionary(Phrase phrase, int dictionaryId);
-        public Task UpdatePhrase(Phrase phrase);
     }
 }

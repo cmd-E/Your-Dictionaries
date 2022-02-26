@@ -33,7 +33,7 @@ namespace YourDictionaries.Commands.DictionariesCommands
                 Name = _editDictionaryViewModel.Name,
                 Id = _editDictionaryViewModel.Id
             };
-            dictionaryDataService.UpdateDictionary(dic).ContinueWith((task) =>
+            dictionaryDataService.Update(dic).ContinueWith((task) =>
             {
                 if (task.Exception == null)
                 {
