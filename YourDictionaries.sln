@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourDictionaries.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourDictionaries.EntityFramework", "YourDictionaries.EntityFramework\YourDictionaries.EntityFramework.csproj", "{010A8406-BD06-4387-BC4E-5B6F7617E22A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "YourDictionaries.SetupProject", "YourDictionaries.SetupProject\YourDictionaries.SetupProject.vdproj", "{5A714CFB-BBD9-4E55-9FB0-89114BDED1DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,9 @@ Global
 		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010A8406-BD06-4387-BC4E-5B6F7617E22A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A714CFB-BBD9-4E55-9FB0-89114BDED1DC}.Debug|Any CPU.ActiveCfg = Debug
+		{5A714CFB-BBD9-4E55-9FB0-89114BDED1DC}.Release|Any CPU.ActiveCfg = Release
+		{5A714CFB-BBD9-4E55-9FB0-89114BDED1DC}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
