@@ -4,6 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>YD_icon.ico</ApplicationIcon>
+    <Authors>cmd-e</Authors>
+    <Description>An application designed to create your own dictionaries on various topics</Description>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl />
+    <RepositoryUrl>https://github.com/cmd-E/Your-Dictionaries/</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
