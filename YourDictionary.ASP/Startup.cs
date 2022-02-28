@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using YourDictionaries.EntityFramework;
+using YourDictionaries.EntityFramework.DataServices;
+using YourDictionaries.EntityFramework.DataServices.Interfaces;
 
 namespace YourDictionary.ASP
 {
@@ -36,6 +38,8 @@ namespace YourDictionary.ASP
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
+            services.AddScoped<AppDbContextFactory>();
+            services.AddScoped<IUsersDataService, UserDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
