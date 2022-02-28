@@ -10,6 +10,7 @@ namespace YourDictionaries.EntityFramework
     {
         public DbSet<Phrase> Phrases { get; set; }
         public DbSet<Dictionary> Dictionaries { get; set; }
+        public DbSet<User> Users { get; set; }
         public AppDbContext(DbContextOptions options) : base(options) { }
     }
 }

@@ -5,12 +5,12 @@ using System.Text;
 
 namespace YourDictionaries.Domain.Models
 {
-    public class Dictionary : DomainObject
+    public class User : DomainObject
     {
         [Required]
         public string Name { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
-        public virtual IEnumerable<Phrase> Phrases { get; set; }
+        [Required]
+        public string Password { get; set; }
+        public string Email { get; set; }
     }
 }
