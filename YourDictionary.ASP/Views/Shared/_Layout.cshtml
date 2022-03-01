@@ -18,29 +18,28 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse container" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-                        <div class="row align-items-end">
-                            <div class="col">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
                                 <a href="/Account/Login" class="btn btn-primary">Login</a>
-                            </div>
-                            <div class="col">
+                            </li>
+                            <li class="nav-item">
                                 <a href="/Account/Register" class="btn btn-outline-primary">Register</a>
-                            </div>
-                        </div>
-                    }
-                    else 
-                    {
-                    <div class="row align-items-end">
-                        <div class="col">
-                            <a href="/Account/Profile" class="btn btn-primary">@User.Identity.Name</a>
-                        </div>
-                        <div class="col">
-                            <a href="/Account/Logout"><img class="logout-img" src="~/images/logout.png"/></a> 
-                        </div>
-                    </div>
-                    }
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a href="/Account/Profile" class="btn btn-primary">@User.Identity.Name</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Account/Logout"><img class="logout-img" src="~/images/logout.png" /></a>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>

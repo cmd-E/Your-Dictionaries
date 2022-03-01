@@ -72,5 +72,9 @@ body {
 
 .logout-img {
     height: auto;
-    width: 70%;
+    width: 80%;
+}
+
+.nav-item {
+    margin-inline: 5px;
 }

@@ -1,17 +1,31 @@
 ﻿@model List<YourDictionary.ASP.ViewModels.DictionaryViewModel>
 
 <div class="row">
-    <table class="table">
-        <tr>
-            <th>
-                Dictionaries
-            </th>
-        </tr>
-        @foreach (var dic in Model)
-        {
+    <div class="col">
+        <table class="table">
             <tr>
-                <td>@dic.Name</td>
+                <th>
+                    Dictionaries
+                </th>
             </tr>
-        }
-    </table>
+            @foreach (var dic in Model)
+            {
+                <tr>
+                    <td>@dic.Name</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col">
+        <table class="table">
+            <tr>
+                <th>
+                    Phrases
+                </th>
+            </tr>
+            <tr>
+                <td>Phrases will be loaded here</td>
+            </tr>
+        </table>
+    </div>
 </div>
