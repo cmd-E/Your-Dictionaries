@@ -13,7 +13,11 @@ namespace YourDictionary.ASP.Services.AutoMapper.Profiles
         public SharedProfile()
         {
             MapBothDirections<Dictionary, DictionaryViewModel>();
-            MapBothDirections<Phrase, PhraseViewModel>();
+            //MapBothDirections<Phrase, PhraseViewModel>();
+            CreateMap<Phrase, PhraseViewModel>()
+                .ForMember(pvm => pvm.Definition, m => m.MapFrom(p => p.Meaning));
+            CreateMap<PhraseViewModel, Phrase>()
+                .ForMember(p => p.Meaning, m => m.MapFrom(pvm => pvm.Definition));
             MapBothDirections<User, UserViewModel>();
         }
 

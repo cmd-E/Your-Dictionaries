@@ -23,5 +23,15 @@ namespace YourDictionaries.EntityFramework.DataServices
                 await context.SaveChangesAsync();
             }
         }
+
+        public async Task<IEnumerable<Phrase>> GetPhrasesFromDictionary(int dictionaryId)
+        {
+            using (var context = AppDbContextFactory.CreateDbContext())
+            {
+                var phrases = context.Phrases.Include(p => p.Dictionary).Where(p => p.DictionaryId == dictionaryId);
+                var list = await phrases.ToListAsync();
+                return list;
+            }
+        }
     }
 }
