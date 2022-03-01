@@ -10,9 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using YourDictionaries.EntityFramework;
 using YourDictionaries.EntityFramework.DataServices;
 using YourDictionaries.EntityFramework.DataServices.Interfaces;
+using YourDictionary.ASP.Services.AutoMapper.Profiles;
 
 namespace YourDictionary.ASP
 {
@@ -38,8 +40,14 @@ namespace YourDictionary.ASP
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
+            var configExppression = new MapperConfigurationExpression();
+            configExppression.AddProfile<SharedProfile>();
+            var config = new MapperConfiguration(configExppression);
+            var mapper = new Mapper(config);
+            services.AddScoped<IMapper>(s => mapper);
             services.AddScoped<AppDbContextFactory>();
             services.AddScoped<IUsersDataService, UserDataService>();
+            services.AddScoped<IDictionaryDataService, DictionaryDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
