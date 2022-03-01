@@ -17,8 +17,17 @@ namespace YourDictionaries.EntityFramework.DataServices
         {
             using (var context = AppDbContextFactory.CreateDbContext())
             {
-                IEnumerable<Dictionary> dic = await context.Set<Dictionary>().Include(d => d.Phrases).ToListAsync();
+                IEnumerable<Dictionary> dic = await context.Dictionaries.Include(d => d.Phrases).ToListAsync();
                 return dic;
+            }
+        }
+
+        public async Task<IEnumerable<Dictionary>> GetDictionariesForUser(int userId)
+        {
+            using (var context = AppDbContextFactory.CreateDbContext())
+            {
+                IEnumerable<Dictionary> dics = await context.Dictionaries.Include(d => d.Phrases).Where(d => d.UserId == userId).ToListAsync();
+                return dics;
             }
         }
     }

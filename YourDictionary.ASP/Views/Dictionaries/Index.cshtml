@@ -1,0 +1,17 @@
+﻿@model List<YourDictionary.ASP.ViewModels.DictionaryViewModel>
+
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>
+                Dictionaries
+            </th>
+        </tr>
+        @foreach (var dic in Model)
+        {
+            <tr>
+                <td>@dic.Name</td>
+            </tr>
+        }
+    </table>
+</div>

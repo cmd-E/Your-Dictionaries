@@ -25,7 +25,7 @@ namespace YourDictionaries.EntityFramework.DataServices
         {
             using (var context = AppDbContextFactory.CreateDbContext())
             {
-                var entity = await context.Users.FirstOrDefaultAsync(u => u.Name == user.Name || u.Email == user.Email && u.Password == user.Password);
+                var entity = await context.Users.FirstOrDefaultAsync(u => u.Name == user.Name && u.Password == user.Password);
                 return entity;
             }
         }

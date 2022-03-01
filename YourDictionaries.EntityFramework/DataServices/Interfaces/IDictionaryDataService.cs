@@ -9,5 +9,6 @@ namespace YourDictionaries.EntityFramework.DataServices.Interfaces
     public interface IDictionaryDataService : IDataService<Dictionary>
     {
         Task<IEnumerable<Dictionary>> GetDictionaries();
+        Task<IEnumerable<Dictionary>> GetDictionariesForUser(int userId);
     }
 }
